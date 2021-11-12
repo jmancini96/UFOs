@@ -52,13 +52,12 @@ function updateFilters() {
 // 7. Use this function to filter the table when data is entered.
 function filterTable() {
   // 8. Set the filtered data to the tableData.
-  var filteredData = tableData;
+  let filteredData = tableData;
   
   // 9. Loop through all of the filters and keep any data that matches the filter values
-  Object.entries(filters).forEach(filter => {
-
-  })
-    
+  Object.entries(filters).forEach(([key]) => {
+    filteredData = filteredData.filter( obj => obj.key !== key);
+    })    
   
   // 10. Finally, rebuild the table using the filtered data
   buildTable(filteredData);
@@ -70,3 +69,4 @@ d3.selectAll("#input").on("change", updateFilters);
   
 // Build the table when the page loads
 buildTable(tableData);
+
